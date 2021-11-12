@@ -4,12 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
-public class home extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class home extends AppCompatActivity{
+
+    TextView viewEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +40,17 @@ public class home extends AppCompatActivity {
 
         SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.viewpagertab);
         viewPagerTab.setViewPager(viewPager);
+
+        viewEmail = findViewById(R.id.viewEmail);
+
+        FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
+
+        String email = usuarioLogado.getEmail().replaceAll("\\p{Punct}", "");
+        viewEmail.setText(email);
+
+        List<String> diasdasemana = new ArrayList<>();
+        diasdasemana.add("Segunda");
+
+
     }
 }

@@ -2,18 +2,30 @@ package com.hrgstudios.kpiskill;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Dias#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Dias extends Fragment {
+public class Dias extends Fragment{
+
+    public ListView listadedias;
+
+    String[] dias = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta"};
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +61,7 @@ public class Dias extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -59,6 +72,10 @@ public class Dias extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dias, container, false);
+        View view = inflater.inflate(R.layout.fragment_dias, container, false);
+        return view;
+
+
+
     }
 }
