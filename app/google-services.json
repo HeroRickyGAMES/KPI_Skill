@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879880124430",
+    "project_id": "kpi-skill",
+    "storage_bucket": "kpi-skill.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879880124430:android:cd7a8e4a9df522082d645f",
+        "android_client_info": {
+          "package_name": "com.hrgstudios.kpiskill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879880124430-lg5c7afte693qcn48aooo25vj18sgjv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGBn06Q1RI_C0QqTv8hEB8x1eDkn-o3nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879880124430-lg5c7afte693qcn48aooo25vj18sgjv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
