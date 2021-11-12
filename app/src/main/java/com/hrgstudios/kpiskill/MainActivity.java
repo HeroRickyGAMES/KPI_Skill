@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     EditText textNome, textCPF, textIdade, textSenha, textEmail;
     Button btn_Cadastro;
 
-    DatabaseReference referencia = FirebaseDatabase.getInstance().getReference("funcionarios");
+    public DatabaseReference referencia = FirebaseDatabase.getInstance().getReference("funcionarios");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
 
             }else{
-                //CADASTRO DO USUARIO NO db
+                CadastroFuncionario(v);
             }
 
             }
@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CadastroFuncionario(View v){
+
         String email = textEmail.getText().toString();
         String senha = textSenha.getText().toString();
-
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 }
