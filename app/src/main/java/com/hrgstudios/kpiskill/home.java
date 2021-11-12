@@ -19,7 +19,9 @@ public class home extends AppCompatActivity {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
                 .add("Dias", Dias.class)
-                //.add(R.string.titleB, PageFragment.class)
+                .add("Climov", Climov.class)
+                .add("Planejamento", Planejamento.class)
+                .add("Itens", Itens.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
