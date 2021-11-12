@@ -3,6 +3,7 @@ package com.hrgstudios.kpiskill;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()){
 
+                    SalvarDadosdoFuncionario();
+
                     FirebaseAuth.getInstance().getUid();
 
                     Snackbar snackbar = Snackbar.make(v, "Cadastro Realizado com sucesso!", Snackbar.LENGTH_LONG);
@@ -105,6 +108,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
+
+        public void SalvarDadosdoFuncionario(){
+
+        String nome = textNome.getText().toString();
+        String idade = textIdade.getText().toString();
+        String CPF = textCPF.getText().toString();
+
+        String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
+
+            referencia.child(getUID).child("nome").setValue(nome);
+            referencia.child(getUID).child("idade").setValue(idade);
+            referencia.child(getUID).child("CPF").setValue(CPF);
+
+        }
+        public void btnnovatela(View view){
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+        }
 }
