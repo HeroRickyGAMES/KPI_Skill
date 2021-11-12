@@ -109,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
         public void SalvarDadosdoFuncionario(){
 
         String nome = textNome.getText().toString();
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
 
             referencia.child(getUID).child("nome").setValue(nome);
-            referencia.child(getUID).child("idade").setValue(idade);
+            referencia.child(getUID).child("Data de admissao").setValue(idade);
             referencia.child(getUID).child("CPF").setValue(CPF);
 
         }
