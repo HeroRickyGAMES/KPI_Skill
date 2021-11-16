@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+//Programado por HeroRicky Games
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Dias#newInstance} factory method to
@@ -22,9 +27,6 @@ import java.util.List;
  */
 public class Dias extends Fragment{
 
-    public ListView listadedias;
-
-    String[] dias = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta"};
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -74,8 +76,6 @@ public class Dias extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dias, container, false);
         return view;
-
-
 
     }
 }

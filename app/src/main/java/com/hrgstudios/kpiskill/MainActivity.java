@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//Programado por HeroRicky Games
+
 public class MainActivity extends AppCompatActivity {
 
     EditText textNome, textCPF, textIdade, textSenha, textEmail;
@@ -112,10 +114,19 @@ public class MainActivity extends AppCompatActivity {
     }
         public void SalvarDadosdoFuncionario(){
 
+        String documentos = "Documentos";
         String nome = textNome.getText().toString();
         String idade = textIdade.getText().toString();
         String CPF = textCPF.getText().toString();
         String email = textEmail.getText().toString();
+        String dias = "dias";
+        String Segunda = "Segunda-Feira";
+        String Terça = "Terça-Feira";
+        String Quarta = "Quarta-Feira";
+        String Quinta = "Quinta-Feira";
+        String Sexta = "Sexta-Feira";
+        String Sabado = "Sabado-Feira";
+        String Domingo = "Domingo-Feira";
 
         //String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
 
@@ -123,10 +134,25 @@ public class MainActivity extends AppCompatActivity {
 
             String getUID = usuarioLogado.getUid();
 
-            referencia.child(getUID).child("nome").setValue(nome);
-            referencia.child(getUID).child("Data de admissao").setValue(idade);
-            referencia.child(getUID).child("CPF").setValue(CPF);
-            referencia.child(getUID).child("E-mail").setValue(email);
+            //Documentos
+            referencia.child(getUID).child("documentos").setValue(documentos);
+
+            referencia.child(getUID).child("documentos").child("nome").setValue(nome);
+            referencia.child(getUID).child("documentos").child("Data de admissao").setValue(idade);
+            referencia.child(getUID).child("documentos").child("CPF").setValue(CPF);
+            referencia.child(getUID).child("documentos").child("E-mail").setValue(email);
+
+            //Dias
+            referencia.child(getUID).child("dias").setValue(dias);
+
+            //Dias da semana
+            referencia.child(getUID).child("dias").child("SegundaFeira").setValue(Segunda);
+            referencia.child(getUID).child("dias").child("TercaFeira").setValue(Terça);
+            referencia.child(getUID).child("dias").child("QuartaFeira").setValue(Quarta);
+            referencia.child(getUID).child("dias").child("QuintaFeira").setValue(Quinta);
+            referencia.child(getUID).child("dias").child("SextaFeira").setValue(Sexta);
+            referencia.child(getUID).child("dias").child("Sabado").setValue(Sabado);
+            referencia.child(getUID).child("dias").child("Domingo").setValue(Domingo);
 
         }
         public void btnnovatela(View view){

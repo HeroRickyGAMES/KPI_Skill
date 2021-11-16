@@ -17,6 +17,8 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import java.util.ArrayList;
 import java.util.List;
 
+//Programado por HeroRicky Games
+
 public class home extends AppCompatActivity{
 
     TextView viewEmail;
