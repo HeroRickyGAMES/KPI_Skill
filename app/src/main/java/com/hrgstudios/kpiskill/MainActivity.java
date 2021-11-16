@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         String nome = textNome.getText().toString();
         String idade = textIdade.getText().toString();
         String CPF = textCPF.getText().toString();
+        String email = textEmail.getText().toString();
 
         //String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
 
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
             referencia.child(getUID).child("nome").setValue(nome);
             referencia.child(getUID).child("Data de admissao").setValue(idade);
             referencia.child(getUID).child("CPF").setValue(CPF);
+            referencia.child(getUID).child("E-mail").setValue(email);
 
         }
         public void btnnovatela(View view){
