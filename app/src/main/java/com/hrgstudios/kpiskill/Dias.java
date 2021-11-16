@@ -2,21 +2,17 @@ package com.hrgstudios.kpiskill;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 //Programado por HeroRicky Games
 
@@ -27,7 +23,10 @@ import java.util.List;
  */
 public class Dias extends Fragment{
 
+    public DatabaseReference referencia = FirebaseDatabase.getInstance().getReference("funcionarios");
 
+    TextView Dia1;
+    TextView Dia2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,6 +74,29 @@ public class Dias extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dias, container, false);
+
+        Dia1 = view.findViewById(R.id.diaS);
+        Dia2 = view.findViewById(R.id.DiaT);
+
+        FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
+
+        String user = usuarioLogado.getUid();
+
+        //Tratamento da String da segunda feira
+        String Seg = referencia.child(user).child("dias").child("Segunda-Feira").toString().replaceAll("\\p{Punct}", "")
+                .replaceAll("https", "").replaceAll(user, "").
+                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
+
+        //Tratamento da String da segunda feira
+        String Ter = referencia.child(user).child("dias").child("Terça-Feira").toString().replaceAll("\\p{Punct}", "")
+                .replaceAll("https", "").replaceAll(user, "").
+                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "").replaceAll("C3A7", "ç");
+
+        //Backend para o FrontEnd
+        Dia1.setText(Seg);
+        Dia2.setText(Ter);
+
+
         return view;
 
     }
