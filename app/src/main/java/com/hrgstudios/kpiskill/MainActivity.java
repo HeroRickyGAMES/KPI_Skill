@@ -116,7 +116,11 @@ public class MainActivity extends AppCompatActivity {
         String idade = textIdade.getText().toString();
         String CPF = textCPF.getText().toString();
 
-        String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
+        //String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
+
+            FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
+
+            String getUID = usuarioLogado.getUid();
 
             referencia.child(getUID).child("nome").setValue(nome);
             referencia.child(getUID).child("Data de admissao").setValue(idade);

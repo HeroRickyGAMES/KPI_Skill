@@ -45,8 +45,10 @@ public class home extends AppCompatActivity{
 
         FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
 
-        String email = usuarioLogado.getEmail().replaceAll("\\p{Punct}", "");
-        viewEmail.setText(email);
+        //String email = usuarioLogado.getEmail().replaceAll("\\p{Punct}", "");
+
+        String getUID = usuarioLogado.getUid();
+        viewEmail.setText(getUID);
 
         List<String> diasdasemana = new ArrayList<>();
         diasdasemana.add("Segunda");
