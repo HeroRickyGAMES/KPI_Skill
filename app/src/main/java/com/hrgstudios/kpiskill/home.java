@@ -21,9 +21,6 @@ import java.util.List;
 
 public class home extends AppCompatActivity{
 
-    TextView viewEmail;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,17 +40,8 @@ public class home extends AppCompatActivity{
         SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.viewpagertab);
         viewPagerTab.setViewPager(viewPager);
 
-        viewEmail = findViewById(R.id.viewEmail);
-
-        FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
 
         //String email = usuarioLogado.getEmail().replaceAll("\\p{Punct}", "");
-
-        String getUID = usuarioLogado.getUid();
-        viewEmail.setText(getUID);
-
-        List<String> diasdasemana = new ArrayList<>();
-        diasdasemana.add("Segunda");
 
 
     }

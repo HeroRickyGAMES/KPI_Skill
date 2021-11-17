@@ -120,13 +120,13 @@ public class MainActivity extends AppCompatActivity {
         String CPF = textCPF.getText().toString();
         String email = textEmail.getText().toString();
         String dias = "dias";
-        String Segunda = "Segunda-Feira";
-        String Terça = "Terça-Feira";
-        String Quarta = "Quarta-Feira";
-        String Quinta = "Quinta-Feira";
-        String Sexta = "Sexta-Feira";
-        String Sabado = "Sabado-Feira";
-        String Domingo = "Domingo-Feira";
+        String Segunda = "SegundaFeira";
+        String Terça = "TerçaFeira";
+        String Quarta = "QuartaFeira";
+        String Quinta = "QuintaFeira";
+        String Sexta = "SextaFeira";
+        String Sabado = "Sabado";
+        String Domingo = "Domingo";
 
         //String getUID = textEmail.getText().toString().replaceAll("\\p{Punct}", "");
 

@@ -107,11 +107,13 @@ public class Dias extends Fragment{
                 .replaceAll("https", "").replaceAll(user, "").
                         replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
 
+
         //Backend para o FrontEnd
         Dia1.setText(Seg);
         Dia2.setText(Ter);
         Dia3.setText(Qua);
         Dia4.setText(Qui);
+        Dia5.setText(Sex);
         Dia5.setText(Sex);
 
 
