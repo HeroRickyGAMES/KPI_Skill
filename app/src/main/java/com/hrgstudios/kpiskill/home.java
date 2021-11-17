@@ -32,6 +32,7 @@ public class home extends AppCompatActivity{
                 .add("Climov", Climov.class)
                 .add("Planejamento", Planejamento.class)
                 .add("Itens", Itens.class)
+                .add("Meu Perfil", InfoFragment.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
