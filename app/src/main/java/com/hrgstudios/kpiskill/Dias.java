@@ -25,8 +25,7 @@ public class Dias extends Fragment{
 
     public DatabaseReference referencia = FirebaseDatabase.getInstance().getReference("funcionarios");
 
-    TextView Dia1;
-    TextView Dia2;
+    TextView Dia1, Dia2, Dia3, Dia4, Dia5;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,8 +74,12 @@ public class Dias extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dias, container, false);
 
+        //View By ID
         Dia1 = view.findViewById(R.id.diaS);
         Dia2 = view.findViewById(R.id.DiaT);
+        Dia3 = view.findViewById(R.id.DiaQUA);
+        Dia4 = view.findViewById(R.id.DiaQUI);
+        Dia5 = view.findViewById(R.id.DiaSex);
 
         FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -87,14 +90,29 @@ public class Dias extends Fragment{
                 .replaceAll("https", "").replaceAll(user, "").
                         replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
 
-        //Tratamento da String da segunda feira
+        //Tratamento da String da Terça
         String Ter = referencia.child(user).child("dias").child("Terça-Feira").toString().replaceAll("\\p{Punct}", "")
                 .replaceAll("https", "").replaceAll(user, "").
                         replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "").replaceAll("C3A7", "ç");
 
+        String Qua = referencia.child(user).child("dias").child("Quarta-Feira").toString().replaceAll("\\p{Punct}", "")
+                .replaceAll("https", "").replaceAll(user, "").
+                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
+
+        String Qui = referencia.child(user).child("dias").child("Quinta-Feira").toString().replaceAll("\\p{Punct}", "")
+                .replaceAll("https", "").replaceAll(user, "").
+                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
+
+        String Sex = referencia.child(user).child("dias").child("Sexta-Feira").toString().replaceAll("\\p{Punct}", "")
+                .replaceAll("https", "").replaceAll(user, "").
+                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdias", "");
+
         //Backend para o FrontEnd
         Dia1.setText(Seg);
         Dia2.setText(Ter);
+        Dia3.setText(Qua);
+        Dia4.setText(Qui);
+        Dia5.setText(Sex);
 
 
         return view;
