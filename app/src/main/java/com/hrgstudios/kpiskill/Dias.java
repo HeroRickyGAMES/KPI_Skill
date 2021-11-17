@@ -1,5 +1,6 @@
 package com.hrgstudios.kpiskill;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -117,7 +118,20 @@ public class Dias extends Fragment{
         Dia5.setText(Sex);
 
 
+        Dia1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SegundaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
+    }
+
+    public void SegAc(View view){
+
+
 
     }
 }
