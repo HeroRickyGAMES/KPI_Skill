@@ -2,8 +2,10 @@ package com.hrgstudios.kpiskill;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -81,13 +86,26 @@ public class InfoFragment extends Fragment {
         ProfileContratation = view.findViewById(R.id.ProfileContratation);
 
 
-        String Nome = referencia.child("documentos").child("nome").toString().replaceAll("\\p{Punct}", "")
-                .replaceAll("https", "").replaceAll(user, "").
-                        replaceAll("kpiskilldefaultrtdbfirebaseiocomfuncionariosdocumentos", "");
+        referencia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.i("FIREBASE", snapshot.getValue().toString());
 
-        ProfileName.setText(Nome);
+                String name = snapshot.child("documentos").child("nome").getValue().toString();
+                String Email = snapshot.child("documentos").child("E-mail").getValue().toString();
+                String CPF = snapshot.child("documentos").child("CPF").getValue().toString();
+                String contratation = snapshot.child("documentos").child("Data de admissao").getValue().toString();
+                ProfileName.setText("Nome: " + name);
+                ProfileEmail.setText("Email: " + Email);
+                ProfileCPF.setText("CPF: " + CPF);
+                ProfileContratation.setText("Data de Admissão: " + contratation);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
         return view;
     }
 }
