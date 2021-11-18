@@ -2,4 +2,11 @@
     <string name="app_name">KPI Skill</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Nomes">
+        <item>João</item>
+        <item>Marcos</item>
+        <item>Mateus</item>
+        <item>Isaque</item>
+        <item>Maria</item>
+    </string-array>
 </resources>

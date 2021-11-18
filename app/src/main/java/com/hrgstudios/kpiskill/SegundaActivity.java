@@ -1,6 +1,8 @@
 package com.hrgstudios.kpiskill;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +20,10 @@ import java.util.List;
 
 public class SegundaActivity extends AppCompatActivity {
 
-    TextView Cliente01;
+
     EditText AddClienteEdText;
+    String  nomes[];
+    RecyclerView recycleView;
     public DatabaseReference referencia = FirebaseDatabase.getInstance().getReference("funcionarios");
 
     @Override
@@ -28,35 +32,20 @@ public class SegundaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_segunda);
 
         AddClienteEdText = findViewById(R.id.AddClienteEdText);
-        Cliente01 = findViewById(R.id.Cliente01);
+
+        recycleView = findViewById(R.id.recycleView);
+
+        nomes = getResources().getStringArray(R.array.Nomes);
+
+        Adaptor adaptor = new Adaptor(this, nomes);
+
+        recycleView.setAdapter(adaptor);
+        recycleView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
-    public void Add(View view){
+    public void Add(View view) {
 
-        //String[] Pessoas = {"Ricky", "Leandro"};
 
-        FirebaseUser usuarioLogado = FirebaseAuth.getInstance().getCurrentUser();
-
-        String getUID = usuarioLogado.getUid();
-
-        String cliente1 = AddClienteEdText.getText().toString();
-
-        String Cliente1 = "Cliente";
-        int n = 1;
-
-        referencia.child(getUID).child("dias").child("SegundaFeira").child(Cliente1 + 1).setValue(cliente1);
-
-        if(n == 1){
-            System.out.println("O valor foi adicionado...");
-
-            String Cliente2 = "Cliente";
-
-            referencia.child(getUID).child("dias").child("SegundaFeira").child(Cliente2 + n + n).setValue(Cliente2);
-
-        }
-
-        System.out.println(getUID + cliente1);
-        Cliente01.setText(cliente1);
     }
 }
